@@ -1,0 +1,30 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/node_app
+permissions:
+  - object: /var/www
+    owner: node_app
+    group: node_app
+    type:
+      - directory
+  - object: /var/www/node_app
+    owner: node_app
+    group: node_app
+    type:
+      - file
+hooks:
+  BeforeInstall:
+    - location: codedeploy/install_node.sh
+    - location: codedeploy/install_strong-pm.sh
+  AfterInstall:
+    - location: codedeploy/npm_install.sh
+    - location: codedeploy/create_app_user.sh
+  ApplicationStart:
+    - location: codedeploy/configure_app.sh
+      runas: node_app
+    - location: codedeploy/start.sh
+      runas: node_app
+  ValidateService:
+    - location: codedeploy/validate.sh
