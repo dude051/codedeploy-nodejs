@@ -1,0 +1,17 @@
+{
+  "name": "codedeploy-nodejs",
+  "version": "1.0.0",
+  "description": "NodeJS test application for CodeDeploy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.1",
+    "mysql": "^2.13.0"
+  }
+}
