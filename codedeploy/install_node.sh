@@ -10,6 +10,6 @@ cd /tmp
 curl -LO http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-x64.tar.gz
 tar xzf node-$NODE_VERSION-linux-x64.tar.gz
 cp -rp node-$NODE_VERSION-linux-x64 /usr/local/
-ln -s /usr/local/node-$NODE_VERSION-linux-x64 /usr/local/node
-ln -s /usr/local/node-$NODE_VERSION-linux-x64/bin/node /usr/local/bin/node
-ln -s /usr/local/node-$NODE_VERSION-linux-x64/bin/npm /usr/local/bin/npm
+ln -sf /usr/local/node-$NODE_VERSION-linux-x64 /usr/local/node
+
+echo 'PATH=$PATH:/usr/local/node/bin' > /etc/profile.d/node-bin-path.sh
